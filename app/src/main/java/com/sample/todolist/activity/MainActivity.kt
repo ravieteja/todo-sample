@@ -24,17 +24,19 @@ import com.sample.todolist.utils.factory.ViewModelFactory
 
 class MainActivity : ComponentActivity() {
 
-    private val homeViewModel: HomeViewModel by viewModels {
+    /*private val homeViewModel: HomeViewModel by viewModels {
         ViewModelFactory(HomeViewModel::class.java) {
             val application = application
             TodosDatabase.init(application.applicationContext)
             val repository = TodosDatabaseRepositoryImpl(app = application)
             HomeViewModel(application, repository)
         }
-    }
+    }*/
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         enableEdgeToEdge()
         setContent {
             TodoListTheme {

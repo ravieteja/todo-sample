@@ -20,7 +20,7 @@ fun DefaultUI(viewModel: HomeViewModel) {
 
     Column(Modifier.fillMaxSize()) {
         NavHost(
-            navController = NavigationManager.NavController,
+            navController = navigationController,
             startDestination = Routes.HOME
         ) {
             composable(Routes.HOME) {

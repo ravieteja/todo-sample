@@ -3,11 +3,13 @@
 package com.sample.todolist.activity.viewmodels
 
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.todolist.R
 import com.sample.todolist.data.model.TodosModel
 import com.sample.todolist.data.repository.TodosDatabaseRepository
+import com.sample.todolist.data.repository.TodosDatabaseRepositoryImpl
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +18,8 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch
 
 /// ViewModel for Home Activity
-class HomeViewModel(private val app: Application, private val repository: TodosDatabaseRepository) : ViewModel() {
+class HomeViewModel(private val app: Application) : AndroidViewModel(app) {
+    private val repository = TodosDatabaseRepositoryImpl(app)
 
     private val _allTodos = MutableStateFlow<List<TodosModel>>(emptyList())
 //    val allTodos: StateFlow<List<TodosModel>> = _allTodos
@@ -82,7 +85,7 @@ class HomeViewModel(private val app: Application, private val repository: TodosD
             // delay of 2 sec
             searchQuery.debounce(2000).collect {
                 // search for title with query
-                repository.getTodoByTitle(it).collect { todos->
+                repository.getTodoByTitle(it).collect { todos ->
                     _searchTodosResults.value = todos
                 }
             }
