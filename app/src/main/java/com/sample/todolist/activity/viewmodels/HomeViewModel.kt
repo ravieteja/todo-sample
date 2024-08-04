@@ -4,11 +4,9 @@ package com.sample.todolist.activity.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.todolist.R
 import com.sample.todolist.data.model.TodosModel
-import com.sample.todolist.data.repository.TodosDatabaseRepository
 import com.sample.todolist.data.repository.TodosDatabaseRepositoryImpl
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
