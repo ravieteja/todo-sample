@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Todo list</string>
+
+    <string name="home_title">Home</string>
+    <string name="add_todo_title">Add TODO</string>
+    <string name="search_for_todo">Search for a TODO</string>
+    <string name="click_to_add_new_todo">Press the + button to add a TODO item</string>
+    <string name="back">Back</string>
+    <string name="add_todo">Add TODO</string>
+    <string name="success_todo_added">Todo Added</string>
+    <string name="failed_to_add_todo">Failed to add TODO</string>
 </resources>

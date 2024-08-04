@@ -8,5 +8,4 @@ import androidx.room.PrimaryKey
 class TodosModel (
     @PrimaryKey(true) val id: Int? = null,
     @ColumnInfo("todo_title") val title: String,
-    @ColumnInfo("todo_description") val description: String
 )
